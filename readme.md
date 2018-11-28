@@ -1,5 +1,5 @@
 # redux-socket
-Quick implementation to pass on redux action to server and vice versa.
+Quick implementation to pass on redux action to server and vice versa. Add to you redux 
 
 # Message structure
 Server structure of message
@@ -9,10 +9,17 @@ Server structure of message
     data
 }
 ```
+## Send from server specific code
+```
+ws.send(JSON.stringify({
+	type: ‘REDUX_ACTION’,
+  data: {}
+}));
+```
 
 Front end structure of message
 ```
-    {
+   {
         type,
         data
     }
