@@ -1,3 +1,4 @@
+'use strict';
 let socket;
 let reconnectCount = 0
 let store;
@@ -14,10 +15,13 @@ const handleQue = () => {
 const SOCKET_OPENED = 'SOCKET_OPENED';
 const SOCKET_CLOSED = 'SOCKET_CLOSED';
 const SOCKET_ERROR = 'SOCKET_ERROR';
+// should be an middleware
 
-export const connect = (_store) => {
+
+
+export const connect = (host, _store) => {
     store = _store;
-    const newSocket = new WebSocket(process.env.SOCKET_HOST);
+    const newSocket = new WebSocket(host);
     newSocket.addEventListener('open', function (event) {
         reconnectCount = 0;
         state = 1;
