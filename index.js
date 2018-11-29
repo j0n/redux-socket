@@ -19,7 +19,7 @@ const SOCKET_ERROR = 'SOCKET_ERROR';
 
 
 
-export const connect = (host, _store) => {
+export const connect = (_store, host) => {
     store = _store;
     const newSocket = new WebSocket(host);
     newSocket.addEventListener('open', function (event) {
